@@ -31,13 +31,11 @@ import {
 
 export function* iniciar_sesion_saga({ payload }) {
   try {
-    console.log(payload);
     const apiResponse = yield call(
       api_login,
       payload.cellphone,
       payload.password
     );
-    console.log("en la saga=> ", apiResponse);
     if (apiResponse?.data?.login?.errors || apiResponse?.data?.login?.message) {
       yield put(iniciar_sesion_erroneo(apiResponse.data.login));
     } else {
@@ -82,7 +80,6 @@ export function* obtener_clientes_saga({ payload }) {
 }
 export function* obtener_one_cliente_saga({ payload }) {
   try {
-    console.log("un solo cliente=> ", payload);
     const token = yield call(getToken);
     const apiResponse = yield call(api_get_one_client, payload.id, token);
     if (
@@ -109,7 +106,6 @@ export function* crear_cliente_saga({ payload }) {
   try {
     const token = yield call(getToken);
     const apiResponse = yield call(api_create_client, payload.data, token);
-    console.log("entré en la saga=> ", apiResponse)
     if (
       apiResponse?.data?.createClient?.errors ||
       apiResponse?.data?.createClient?.message
@@ -161,5 +157,3 @@ export default function* rootSaga() {
     takeEvery(OBTENER_ONE_CLIENTE, obtener_one_cliente_saga),
   ]);
 }
-//USER:  +573057199995
-//password: password

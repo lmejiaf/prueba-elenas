@@ -2,12 +2,12 @@ import axios from "axios";
 import { CREATE_CLIENT, LOGIN, UPDATE_CLIENT } from "./mutations";
 import { GET_ALL_CLIENTS } from "./queries";
 
-export const endpoint = "https://tutor.dev.elenas.la/gql/";
+export const ENDPOINT = "https://tutor.dev.elenas.la/gql/";
 export const POST = "POST";
 
 export const api_login = async (cellphone, password) => {
   let apiResponse = await axios({
-    url: endpoint,
+    url: ENDPOINT,
     method: POST,
     data: {
       query: LOGIN,
@@ -19,12 +19,11 @@ export const api_login = async (cellphone, password) => {
   })
     .then(({ data }) => data)
     .catch((err) => err);
-  console.log(apiResponse);
   return apiResponse;
 };
 export const api_get_all_clients = async (page, token) => {
   let apiResponse = await axios({
-    url: endpoint,
+    url: ENDPOINT,
     method: POST,
     headers: {
       Authorization: `Token ${token}`,
@@ -38,12 +37,11 @@ export const api_get_all_clients = async (page, token) => {
   })
     .then(({ data }) => data)
     .catch((err) => err);
-  console.log(apiResponse);
   return apiResponse;
 };
 export const api_get_one_client = async (id, token) => {
   let apiResponse = await axios({
-    url: endpoint,
+    url: ENDPOINT,
     method: POST,
     headers: {
       Authorization: `Token ${token}`,
@@ -58,12 +56,11 @@ export const api_get_one_client = async (id, token) => {
   })
     .then(({ data }) => data)
     .catch((err) => err);
-  console.log(apiResponse);
   return apiResponse;
 };
 export const api_create_client = async (input, token) => {
   let apiResponse = await axios({
-    url: endpoint,
+    url: ENDPOINT,
     method: POST,
     headers: {
       Authorization: `Token ${token}`,
@@ -79,12 +76,11 @@ export const api_create_client = async (input, token) => {
   })
     .then(({ data }) => data)
     .catch((err) => err);
-  console.log(apiResponse);
   return apiResponse;
 };
 export const api_update_client = async (id, input, token) => {
   let apiResponse = await axios({
-    url: endpoint,
+    url: ENDPOINT,
     method: POST,
     headers: {
       Authorization: `Token ${token}`,
@@ -101,6 +97,5 @@ export const api_update_client = async (id, input, token) => {
   })
     .then(({ data }) => data)
     .catch((err) => err);
-  console.log(apiResponse);
   return apiResponse;
 };
