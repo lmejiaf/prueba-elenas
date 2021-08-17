@@ -7,5 +7,6 @@
 * expo: flujo administrado para react-native
 
 # Comandos:
+* yarm add or npm i and expo install => instalar todas las dependencias
 * expo start => inicia la app sobre expo
 * una vez iniciada la app sobre expo, presionar "a" en la consola para correr sobre android
